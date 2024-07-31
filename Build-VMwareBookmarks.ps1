@@ -57,6 +57,16 @@ foreach ($vcenter in ($global:DefaultVIServers.name | sort )) {
 }
 $html += "</DL>`n</DT>`n"
 ##Other VMware Products found in environment.
+##VMware Identity Manager
+if ($vms |where {$_.Config.VAppConfig.Product.Name -eq "IdentityManager"}){
+    $html += "<DT>`n<H3 FOLDED>VMware Identity Manager</H3>`n<DL>`n"
+    foreach($VMwareIdentityManager in ($vms | where {$_.Config.VAppConfig.Product.Name -eq "IdentityManager"} |sort name | select -ExpandProperty name)) {
+        $bookmarkHtml = "<DT><A HREF=""https://$VMwareIdentityManager"">$VMwareIdentityManager</A></DT>`n"
+        $html += $bookmarkHtml
+    }
+    $html += "</DL>`n</DT>`n"
+}
+
 ##VMware Aria Operations for Networks Platform
 if ($vms |where {$_.Config.VAppConfig.Product.Name -eq "VMware Aria Operations for Networks Platform"}){
     $html += "<DT>`n<H3 FOLDED>VMware Aria Operations for Networks Platform</H3>`n<DL>`n"
@@ -132,7 +142,7 @@ if ($vms |where {$_.Config.VAppConfig.Product.Name -eq "VMware vCenter Log Insig
 if ($vms |where {$_.Config.VAppConfig.Product.Name -eq "vRealize Automation"}){
     $html += "<DT>`n<H3 FOLDED>vRealize Automation</H3>`n<DL>`n"
     foreach($VMwareAriaAutomation in ($vms | where {$_.Config.VAppConfig.Product.Name -eq "vRealize Automation"} |sort name | select -ExpandProperty name)) {
-        $bookmarkHtml = "<DT><A HREF=""https://$vRealizeAutomation"">$vRealizeAutomation</A></DT>`n"
+        $bookmarkHtml = "<DT><A HREF=""https://$VMwareAriaAutomation"">$VMwareAriaAutomation</A></DT>`n"
         $html += $bookmarkHtml
     }
     $html += "</DL>`n</DT>`n"
