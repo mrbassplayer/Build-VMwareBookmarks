@@ -8,6 +8,7 @@ Currently, it can find
 * vCenter
 * ESXi 
 * ESXi OOB Mgmt via user provided details
+* Identity Manager
 * VMware Aria Operations for Networks Platform
 * VMware Aria Suite Lifecycle Appliance
 * VMware HCX
