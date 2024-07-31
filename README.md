@@ -26,3 +26,4 @@ To use, first connect to all the vcenters you have in your environment, using th
 Then, run the script.
 It will ask you for the domain name of your environment.
 It will then ask you for the modifier in the FQDN for the out of band management. (e.g. iDrac, iLO, IPMI).
+Lastly, it will ask for the path to where it should save the bookmarks file.
